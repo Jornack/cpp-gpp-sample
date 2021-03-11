@@ -13,3 +13,15 @@ steps:
 - script: |
     make
   displayName: 'make'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: .
+    TargetFolder: $(Build.ArtifactStagingDirectory)
+    CleanTargetFolder: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: $(Build.ArtifactStagingDirectory)
+    ArtifactName: drop
+    
