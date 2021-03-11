@@ -17,6 +17,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     SourceFolder: .
+    Contents: '**/primes_in_range'
     TargetFolder: $(Build.ArtifactStagingDirectory)
     CleanTargetFolder: true
 
@@ -24,4 +25,4 @@ steps:
   inputs:
     pathToPublish: $(Build.ArtifactStagingDirectory)
     ArtifactName: drop
-    
+    artifactType: 'container'
